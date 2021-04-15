@@ -48,39 +48,3 @@ while cont<100:
 
 print(vetory,' é a solução para o vetor aplicado nos coeficientes calculados pela função')
 
-#gerando y a partir dos coeficientes calculados
-
-vetory1=np.empty((100)) #array para receber vetor com ruido
-cont2=0
-while cont2<100: 
-    vetory1[cont2]=-0.5+0.4*vetorx[cont2]
-    cont2=cont2+1
-    
-print(vetory1,' é a solucao para a equacao dada') 
-
-
-#adicionando criando ruido gaussiano
-
-aleat=np.random.randn(100) #apoio para criar ruido gaussiano
-ruido=np.empty(100) #define tamanho do vetor de ruido
-for i in range (0,100): #cria o vetor de ruido multiplicando por 0.1
-    ruido[i]=(aleat[i]*0.1)
-
-vetory2=np.empty((100)) #array para receber vetor com ruido
-
-#aplicando ruido no vetor anterior
-cont3=0
-while cont3<100: 
-    vetory2[cont3]=vetory1[cont3]+aleat[cont3]
-    cont3=cont3+1
-
-print(vetory2, ' adicao dos ruidos')
-
-print(regressaolinear(vetorx,vetory1),'equacao da questao')
-print(regressaolinear(vetorx,vetory2),'distribuicao nova pos ruido')
-""" a adicao do ruido em cada indice do novo vetor y alterou a dispersao dos pontos
-fazendo com que os coeficientes mudem de valor"""
-
-import matplotlib as mp
-
-
